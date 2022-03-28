@@ -20,7 +20,7 @@ export const Weather = (props) => {
         {name} - {description}
       </p>
       <div className="weather__info">
-        <div className="weather__temp">{temperature}°</div>
+        <span className="weather__temp">{temperature}°</span>
         <img alt="weather" src={weatherIcon} className="weather__icon" />
       </div>
       <a href={coordLink} target="blank">
