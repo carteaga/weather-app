@@ -1,0 +1,28 @@
+* {
+  box-sizing: border-box;
+}
+
+.weather-app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: sans-serif;
+  width: 100%;
+}
+
+.weather-app__container {
+  display: flex;
+  flex-direction: column;
+  min-width: 210px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.weather-app__location {
+  height: 60px;
+  width: 100%;
+  margin-bottom: 30px;
+  padding: 15px;
+  font-size: 20px;
+}

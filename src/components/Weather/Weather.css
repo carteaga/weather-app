@@ -1,0 +1,29 @@
+.weather {
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.weather__city {
+  font-size: 0.9em;
+}
+
+.weather__info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather__temp {
+  font-size: 2em;
+}
+
+.weather__icon {
+  width: 50px;
+}
