@@ -1,5 +1,5 @@
 # weather-app
-Simple web page that search weather in your location powered via [openweathermap] https://openweathermap.org/api
+Simple web page that search weather in your location powered via https://openweathermap.org/api. Example in https://carteagas-weather-app.netlify.app/
 
 ## Installation
 You need .env file with the next variables:
