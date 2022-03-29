@@ -1,6 +1,7 @@
 .weather-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 5px;
+  display: grid;
+  grid-auto-rows: 200px;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  row-gap: 10px;
+  column-gap: 10px;
 }
