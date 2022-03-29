@@ -7,6 +7,9 @@ const get = async (url) => {
   return await response.json();
 };
 
+const urlParamsToString = (params = {}) =>
+  new URLSearchParams(params).toString();
+
 export const mapWeather = (data) => {
   const { id, main = {}, weather: weathers = [], name, sys, coord } = data;
 
@@ -26,28 +29,19 @@ export const mapWeather = (data) => {
     temperature: temp,
     weatherIcon: `https://openweathermap.org/img/wn/${icon}@2x.png`,
     flagIcon: `https://www.countryflagicons.com/FLAT/32/${country}.png`,
-    coordLink: `https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=${coord.lat}&lon=${coord.lon}&zoom=12`
+    coordLink: `https://openweathermap.org/weathermap?basemap=map&cities=true&layer=temperature&lat=${coord.lat}&lon=${coord.lon}&zoom=12`,
   };
 };
 
-export const getWeather = async (city) => {
-  const data = await get(
-    `${BASE_URL}/weather?q=${city}&units=metric&lang=es&appid=${KEY}`
-  );
-
-  if (data.cod !== CODE_REQUEST_OK) {
-    throw Error(data.message);
-  }
-
-  return mapWeather(data);
-};
-
 export const findWeather = async (city) => {
-  if (!city) return [];
+  const params = urlParamsToString({
+    q: city,
+    units: "metric",
+    lang: "es",
+    appid: KEY,
+  });
 
-  const data = await get(
-    `${BASE_URL}/find?q=${city}&units=metric&lang=es&appid=${KEY}`
-  );
+  const data = await get(`${BASE_URL}/find?${params}`);
 
   if (Number(data.cod) !== CODE_REQUEST_OK) {
     throw Error(data.message);
