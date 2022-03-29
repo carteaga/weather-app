@@ -12,8 +12,7 @@ const DELAY_INPUT_MS = 500;
 export const WeatherApp = () => {
   const city = useInput("");
   const debounceCity = useDebounce(city.value, DELAY_INPUT_MS);
-  const { data, loading } = useWeather({ city: debounceCity });
-  const hasCity = debounceCity.length > 0;
+  const { data, isLoading, isSuccess } = useWeather(debounceCity);
   const hasResults = data && data.length > 0;
 
   return (
@@ -25,11 +24,11 @@ export const WeatherApp = () => {
           type="text"
           {...city}
         />
-        {loading && <WeatherListSkeleton />}
-        {hasCity && !hasResults && !loading && (
+        {isLoading && <WeatherListSkeleton />}
+        {!hasResults && isSuccess && (
           <p>Ops! No se han encontrado resultados.</p>
         )}
-        {hasResults && !loading && <WeatherList data={data} />}
+        {hasResults && <WeatherList data={data} />}
       </div>
     </div>
   );

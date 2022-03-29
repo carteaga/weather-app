@@ -1,15 +1,16 @@
 import { useQuery } from "react-query";
 import { findWeather } from "../services/weather";
 
-export const useWeather = ({ city }) => {
-  const { isFetching, error, data } = useQuery(
-    ["weathers", city],
-    () => findWeather(city),
+export const useWeather = (city) => {
+  const normalizedCity = city.trim().toLowerCase();
+
+  const { isLoading, error, data, isFetching, isSuccess } = useQuery(
+    ["weathers", normalizedCity],
+    () => findWeather(normalizedCity),
     {
-      initialData: [],
-      enabled: !!city
+      enabled: !!normalizedCity,
     }
   );
 
-  return { data, loading: isFetching, error };
+  return { data, isLoading, isFetching, isSuccess, error };
 };
