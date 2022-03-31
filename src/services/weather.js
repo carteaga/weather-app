@@ -1,13 +1,8 @@
+import { get, urlParamsToString } from './utils';
+
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 const KEY = process.env.REACT_APP_API_KEY;
 const CODE_REQUEST_OK = 200;
-
-const get = async (url) => {
-  const response = await fetch(url);
-  return await response.json();
-};
-
-const urlParamsToString = (params = {}) => new URLSearchParams(params).toString();
 
 export const mapWeather = (data) => {
   const { id, main = {}, weather: weathers = [], name, sys, coord } = data;
