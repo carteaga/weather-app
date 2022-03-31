@@ -1,6 +1,8 @@
+import PropTypes from 'prop-types';
+
 // Components
-import { Weather } from "../Weather";
-import "./WeatherList.css";
+import { Weather } from '../Weather';
+import './WeatherList.css';
 
 export const WeatherList = (props) => {
   const { data = [] } = props;
@@ -12,4 +14,8 @@ export const WeatherList = (props) => {
       ))}
     </div>
   );
+};
+
+WeatherList.propTypes = {
+  data: PropTypes.array,
 };

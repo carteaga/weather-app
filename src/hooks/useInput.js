@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 export const useInput = (initialValue) => {
   const [value, setValue] = React.useState(initialValue);
@@ -9,6 +9,6 @@ export const useInput = (initialValue) => {
 
   return {
     value,
-    onChange: handleChange
+    onChange: handleChange,
   };
 };

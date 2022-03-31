@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.openweathermap.org/data/2.5";
+const BASE_URL = 'https://api.openweathermap.org/data/2.5';
 const KEY = process.env.REACT_APP_API_KEY;
 const CODE_REQUEST_OK = 200;
 
@@ -7,8 +7,7 @@ const get = async (url) => {
   return await response.json();
 };
 
-const urlParamsToString = (params = {}) =>
-  new URLSearchParams(params).toString();
+const urlParamsToString = (params = {}) => new URLSearchParams(params).toString();
 
 export const mapWeather = (data) => {
   const { id, main = {}, weather: weathers = [], name, sys, coord } = data;
@@ -36,8 +35,8 @@ export const mapWeather = (data) => {
 export const findWeather = async (city) => {
   const params = urlParamsToString({
     q: city,
-    units: "metric",
-    lang: "es",
+    units: 'metric',
+    lang: 'es',
     appid: KEY,
   });
 

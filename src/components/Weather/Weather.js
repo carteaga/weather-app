@@ -1,17 +1,10 @@
-import * as React from "react";
-import "./Weather.css";
+import * as React from 'react';
+import PropTypes from 'prop-types';
+import './Weather.css';
 
 export const Weather = (props) => {
-  const {
-    coord,
-    coordLink,
-    country,
-    description,
-    flagIcon,
-    name,
-    temperature,
-    weatherIcon
-  } = props;
+  const { coord, coordLink, country, description, flagIcon, name, temperature, weatherIcon } =
+    props;
 
   return (
     <div className="weather">
@@ -28,4 +21,17 @@ export const Weather = (props) => {
       </a>
     </div>
   );
+};
+
+Weather.propTypes = {
+  coord: PropTypes.number,
+  coordLink: PropTypes.string,
+  country: PropTypes.string,
+  description: PropTypes.string,
+  flagIcon: PropTypes.string,
+  lat: PropTypes.string,
+  lon: PropTypes.string,
+  name: PropTypes.string,
+  temperature: PropTypes.string,
+  weatherIcon: PropTypes.string,
 };

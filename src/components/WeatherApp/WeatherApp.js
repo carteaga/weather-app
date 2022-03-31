@@ -1,16 +1,16 @@
 // components
-import { WeatherList, WeatherListSkeleton } from "../WeatherList";
+import { WeatherList, WeatherListSkeleton } from '../WeatherList';
 
 // Hooks
-import { useWeather, useInput, useDebounce } from "../../hooks";
+import { useWeather, useInput, useDebounce } from '../../hooks';
 
 // styles
-import "./WeatherApp.css";
+import './WeatherApp.css';
 
 const DELAY_INPUT_MS = 500;
 
 export const WeatherApp = () => {
-  const city = useInput("");
+  const city = useInput('');
   const debounceCity = useDebounce(city.value, DELAY_INPUT_MS);
   const { data, isLoading, isSuccess } = useWeather(debounceCity);
   const hasResults = data && data.length > 0;
@@ -25,9 +25,7 @@ export const WeatherApp = () => {
           {...city}
         />
         {isLoading && <WeatherListSkeleton />}
-        {!hasResults && isSuccess && (
-          <p>Ops! No se han encontrado resultados.</p>
-        )}
+        {!hasResults && isSuccess && <p>Ops! No se han encontrado resultados.</p>}
         {hasResults && <WeatherList data={data} />}
       </div>
     </div>
