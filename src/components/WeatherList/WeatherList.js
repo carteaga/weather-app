@@ -17,5 +17,5 @@ export const WeatherList = (props) => {
 };
 
 WeatherList.propTypes = {
-  data: PropTypes.arrayOf(PropTypes.instanceOf(Weather)),
+  data: PropTypes.arrayOf(PropTypes.shape(Weather.propTypes)),
 };

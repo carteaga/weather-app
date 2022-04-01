@@ -24,14 +24,12 @@ export const Weather = (props) => {
 };
 
 Weather.propTypes = {
-  coord: PropTypes.number,
+  coord: PropTypes.object,
   coordLink: PropTypes.string,
   country: PropTypes.string,
   description: PropTypes.string,
   flagIcon: PropTypes.string,
-  lat: PropTypes.string,
-  lon: PropTypes.string,
   name: PropTypes.string,
-  temperature: PropTypes.string,
+  temperature: PropTypes.number,
   weatherIcon: PropTypes.string,
 };
